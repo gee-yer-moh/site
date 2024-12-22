@@ -7,6 +7,9 @@ export default function Home() {
     <div className={styles.container}>
       <NavBar />
       <Title />
+      <div className="b2">Lorem ipsum dolor sit amet.</div>
+      <div className="b2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor. Vivamus aliquam hendrerit dolor, vulputate mattis quam tristique non.</div>
+      <div className="b2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor.</div>
     </div>
   );
 }
