@@ -3,6 +3,8 @@
   align-self: center;
   justify-self: center;
   width: 100%;
-  gap: 30px;
-  padding: 5px 0px;
+  gap: 50px;
+  padding: 30px 0px;
+  display: flex;
+  flex-direction: column;
 }
