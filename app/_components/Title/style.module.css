@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: fit-content;
+}
+
+.pronunciation {
+    margin-left: 110px;
+    text-align: end;
+    opacity: 0.5;
+}
