@@ -16,7 +16,3 @@
   cursor: pointer;
 }
 
-.links > div:hover {
-  text-decoration: underline;
-}
-
