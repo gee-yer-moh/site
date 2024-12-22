@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.links {
+  display: flex;
+  width: fit-content;
+  gap: 40px;
+}
+
+.links > div {
+  cursor: pointer;
+}
+
+.links > div:hover {
+  text-decoration: underline;
+}
+
