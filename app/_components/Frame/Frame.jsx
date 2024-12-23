@@ -9,6 +9,7 @@ export default function Frame({src, caption, date}) {
         alt={caption} 
         fill
         style={{objectFit: 'cover'}}
+        priority
     />
     </div>
     <div className={styles.footer}>
