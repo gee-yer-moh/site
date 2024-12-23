@@ -14,7 +14,7 @@
 
 .links > div {
   cursor: pointer;
-  color: #808080;
+  color: var(--tertiary);
 
 }
 

@@ -1,3 +1,7 @@
 .polygon:hover {
   cursor: pointer;
 }
+
+.polygon {
+  fill: var(--primary);
+}

@@ -2,7 +2,7 @@
 
 import styles from "./style.module.css";
 
-export default function Polygon({ sides = 12, size = 500, color = "#000000" }) {
+export default function Polygon({ sides = 12, size = 500 }) {
   // Calculate points of polygon
   const points = [];
   const centerX = size / 2;
@@ -21,7 +21,6 @@ export default function Polygon({ sides = 12, size = 500, color = "#000000" }) {
     <svg width={size} height={size}>
       <polygon
         points={points.join(' ')}
-        fill={color}
         transform={`rotate(-90 ${size/2} ${size/2})`}
         className={styles.polygon}
         suppressHydrationWarning

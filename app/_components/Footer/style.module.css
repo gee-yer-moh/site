@@ -9,11 +9,17 @@
   }
   
   .links > a {
-    color: #808080;
+    color: var(--tertiary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+    .links > a {
+    color: var(--tertiary);
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
   .links > a:hover {
-    color: #000000;
+    color: var(--primary);
   }

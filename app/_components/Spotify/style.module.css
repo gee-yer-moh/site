@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-color: #F3F3F3;
+  background-color: var(--quaternary);
   padding: 15px;
   gap: 15px;
   border-radius: 2.5px;
@@ -17,10 +17,10 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  background-color: #FFFFFF;
+  background-color: var(--secondary);
   padding: 7.5px;
   border-radius: 2.5px;
-  border: 0.5px solid #E5E5E5;
+  border: 0.5px solid var(--border);
 }
 
 .songInfo {
@@ -46,6 +46,6 @@
 }
 
 .footer > div {
-    color: #808080;
+    color: var(--tertiary);
 }
 

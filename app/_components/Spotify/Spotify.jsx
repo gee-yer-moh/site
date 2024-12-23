@@ -17,7 +17,7 @@ export default function Spotify() {
       </div>
       <div className={styles.songInfo}>
         <a className="b3" href="https://www.google.com" target="_blank" rel="noopener noreferrer">Close to the Edge</a>
-        <div className="b3" style={{color: '#808080'}}>Yes</div>
+        <div className="b3" style={{color: 'var(--tertiary)'}}>Yes</div>
       </div>
     </div>
     <div className={styles.footer}>
