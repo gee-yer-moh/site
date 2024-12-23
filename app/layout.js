@@ -4,6 +4,7 @@ import { Lora } from "next/font/google";
 
 const lora = Lora({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-lora",
 });
 
@@ -14,10 +15,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${lora.variable}`}>
-        {children}
-      </body>
+    <html lang="en" className={lora.variable}>
+      <body>{children}</body>
     </html>
   );
 }
