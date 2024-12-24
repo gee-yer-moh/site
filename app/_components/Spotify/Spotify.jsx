@@ -43,42 +43,34 @@ export default function Spotify() {
     link: "https://open.spotify.com/track/1oJ2a13bVN1RssKIWxKLe2?si=fb2f27c6963c4652"
   });
   
-//   useEffect(() => {
-//     const fetchItems = async () => {
-//         try {
-//             const response = await fetch('/api/spotify');
-//             const data = await response.json();
-//             console.log('data', data);
-//         } catch (error) {
-//             console.error('Error fetching Spotify data:', error);
-//         }
-//     };
-//     fetchItems();
-// }, []);
-
-    useEffect(() => {
-
-        const fetchItems = async () => {
-            const response = await getItems(
-                process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
-                process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET,
-                process.env.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
-            );
-            if (response) {
-                setRecentlyPlayed(response.recentlyPlayedSong);
-                setNowPlaying(response.nowPlayingSong);
+  useEffect(() => {
+    const fetchItems = async () => {
+        try {
+            const response = await fetch('/api/spotify');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        };
-
-        fetchItems();
-
-        // Refresh every 30 seconds
-        const interval = setInterval(fetchItems, 30000);
-
-        
-        return () => clearInterval(interval);
-
-    }, []);
+            const text = await response.text(); // Get response as text first
+            
+            if (!text) {
+                console.log('Empty response received');
+                return;
+            }
+            
+            try {
+                const data = JSON.parse(text);
+                console.log('data', data);
+                setRecentlyPlayed(data.recentlyPlayedSong);
+                setNowPlaying(data.nowPlayingSong);
+            } catch (parseError) {
+                console.error('Error parsing JSON:', parseError);
+            }
+        } catch (error) {
+            console.error('Error fetching Spotify data:', error);
+        }
+    };
+    fetchItems();
+}, []);
 
     useEffect(() => {
       if (nowPlaying && nowPlaying?.is_playing) {
@@ -127,7 +119,7 @@ export default function Spotify() {
       />
       </div>
       <div className={styles.songInfo}>
-        <a className="b3" style={{textWrap: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', width: '100%'}} href={data.link} target="_blank" rel="noopener noreferrer">{data.title}</a>
+        <a className="b3" style={{textWrap: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', width: 'fit-content', maxWidth: '100%'}} href={data.link} target="_blank" rel="noopener noreferrer">{data.title}</a>
         <div className="b3" style={{color: 'var(--tertiary)'}}>{data.artist}</div>
       </div>
     </div>

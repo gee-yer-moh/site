@@ -44,6 +44,8 @@ export const getNowPlaying = async (client_id, client_secret, refresh_token) => 
     });
 };
 
+
+
 export const getRecentlyPlayed = async (client_id, client_secret, refresh_token) => {
     const { access_token } = await getAccessToken(
         client_id,
