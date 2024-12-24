@@ -16,7 +16,7 @@
   --secondary: #ffffff;
   --tertiary: #808080;
   --quaternary: #F3F3F3;
-  --selection: #000000;
+  --selection: #00000050;
   --border: #E5E5E5;
 }
 
@@ -24,12 +24,12 @@
 .dark-theme {
   --background: #000000;
   --foreground: #ffffff;
-  --primary: #27b02c;
-  --secondary: #9b59b6; 
-  --tertiary: #1e90ff;
-  --quaternary: #d6a922;
-  --selection: #ffffff;
-  --border: #6b0000;
+  --primary: #ffffff;
+  --secondary: #000000; 
+  --tertiary: #A0A0A0;
+  --quaternary: #313131;
+  --selection: #ffffff50;
+  --border: #000000;
 }
 
 /* Add this to prevent FOUC */
@@ -43,6 +43,8 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
+
 
 body {
   color: var(--foreground);

@@ -6,6 +6,7 @@
   flex-direction: row;
 }
 
+
 .links {
   display: flex;
   width: fit-content;
@@ -15,6 +16,10 @@
 .links > div {
   cursor: pointer;
   color: var(--tertiary);
+  transition: color 0.3s ease;
+}
 
+.links > div:hover {
+  color: var(--primary);
 }
 
