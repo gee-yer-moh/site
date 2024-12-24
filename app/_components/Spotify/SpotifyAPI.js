@@ -3,11 +3,13 @@ const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
 const RECENTLY_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played`;
 
-const client_id = process.env.SPOTIFY_CLIENT_ID;
-const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
+const getAccessToken = async (client_id, client_secret, refresh_token) => {
 
-const getAccessToken = async () => {
+    if (!client_id || !client_secret || !refresh_token) {
+        throw new Error('Missing required credentials');
+    }
+
+
     const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
     const response = await fetch(TOKEN_ENDPOINT, {
         method: "POST",
@@ -20,6 +22,11 @@ const getAccessToken = async () => {
             refresh_token,
         }),
     });
+
+    if (!response.ok) {
+        const error = await response.text();
+        throw new Error(`Token refresh failed: ${error}`);
+    }
 
     return response.json();
 };
@@ -59,7 +66,13 @@ export default async function getItems(
     const nowPlaying = await getNowPlaying(client_id, client_secret, refresh_token);
 
     const recentlyPlayedSong = await recentlyPlayed.json();
-    const nowPlayingSong = await nowPlaying.json();
+    let nowPlayingSong = null;
+
+    try {
+        nowPlayingSong = await nowPlaying.json();
+    } catch (error) {
+        // do nothing
+    }
     
     return {
         recentlyPlayedSong,

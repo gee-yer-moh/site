@@ -6,6 +6,7 @@ import Image from 'next/image';
 import getItems from './SpotifyAPI';
 import Bars from './Bars';
 
+
 const msToMinutes = (ms) => {
   const minutes = Math.floor(ms / 60000);
   return `${minutes}`;
@@ -29,20 +30,20 @@ export default function Spotify() {
   const [recentlyPlayed, setRecentlyPlayed] = useState(null);
   const [nowPlaying, setNowPlaying] = useState(null);
   const [data, setData] = useState({
-    title: null,
-    artist: null,
-    image: null,
-    time: null,
-    link: null,
+    title: "Close to the Edge",
+    artist: "Yes",
+    image: "https://i.scdn.co/image/ab67616d0000b27303e402534d80a4aee949a950",
+    time: "12",
+    link: "https://open.spotify.com/track/1oJ2a13bVN1RssKIWxKLe2?si=fb2f27c6963c4652"
   });
 
     useEffect(() => {
 
         const fetchItems = async () => {
             const response = await getItems(
-                process.env.SPOTIFY_CLIENT_ID,
-                process.env.SPOTIFY_CLIENT_SECRET,
-                process.env.SPOTIFY_REFRESH_TOKEN
+                process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
+                process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET,
+                process.env.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
             );
             if (response) {
                 setRecentlyPlayed(response.recentlyPlayedSong);
@@ -62,7 +63,6 @@ export default function Spotify() {
 
     useEffect(() => {
       if (nowPlaying && nowPlaying?.is_playing) {
-        console.log(nowPlaying);
         setData(
           {
             title: nowPlaying.item.name,
@@ -74,7 +74,6 @@ export default function Spotify() {
       }
       else if (recentlyPlayed) {
         const nonExplicitTrack = findFirstNonExplicitTrack(recentlyPlayed);
-        console.log(nonExplicitTrack);
         if (!nonExplicitTrack) {
           setData({
             title: "Close to the Edge",
@@ -105,6 +104,7 @@ export default function Spotify() {
           alt={"Album Art"} 
           fill
           style={{objectFit: 'cover'}}
+          sizes="(max-width: 768px) 100vw, 50vw"
       />
       </div>
       <div className={styles.songInfo}>

@@ -2,6 +2,7 @@ import styles from './style.module.css';
 import Image from 'next/image';
 
 export default function Frame({src, caption, date}) {
+  
   return <div className={styles.frame}>
     <div className={styles.image}> 
         <Image 
@@ -10,6 +11,7 @@ export default function Frame({src, caption, date}) {
         fill
         style={{objectFit: 'cover'}}
         priority
+        sizes="(max-width: 768px) 100vw, 50vw"
     />
     </div>
     <div className={styles.footer}>
