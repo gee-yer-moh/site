@@ -29,6 +29,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 5px;
+  width: 85%;
 }
 
 .image {
