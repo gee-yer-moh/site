@@ -14,9 +14,13 @@ export default function NavBar() {
     document.body.className = `${theme}-theme`;
   }, [theme]);
 
+  const handlePolygonClick = () => {
+    setSides(current => current <= 3 ? 12 : current - 1);
+  };
+
   return (
     <div className={styles.container}>
-      <div onClick={() => setSides(Math.floor(Math.random() * 10) + 3)}>
+      <div onClick={handlePolygonClick}>
         <Polygon 
           size={25} 
           sides={sides} 
