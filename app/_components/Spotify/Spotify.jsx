@@ -9,7 +9,13 @@ import Bars from './Bars';
 
 const msToMinutes = (ms) => {
   const minutes = Math.floor(ms / 60000);
-  return `${minutes}`;
+  if (minutes > 60) {
+    return `${Math.floor(minutes / 60)}h`;
+  }
+  if (minutes > 1440) {
+    return `${Math.floor(minutes / 1440)}d`;
+  }
+  return `${minutes}m`;
 }
 
 const msBetweenTodayAndDate = (date) => {
@@ -36,6 +42,19 @@ export default function Spotify() {
     time: "12",
     link: "https://open.spotify.com/track/1oJ2a13bVN1RssKIWxKLe2?si=fb2f27c6963c4652"
   });
+  
+//   useEffect(() => {
+//     const fetchItems = async () => {
+//         try {
+//             const response = await fetch('/api/spotify');
+//             const data = await response.json();
+//             console.log('data', data);
+//         } catch (error) {
+//             console.error('Error fetching Spotify data:', error);
+//         }
+//     };
+//     fetchItems();
+// }, []);
 
     useEffect(() => {
 
@@ -114,7 +133,7 @@ export default function Spotify() {
     </div>
     <div className={styles.footer}>
     {<div className="b3">Disclaimer: I share Spotify with my wife.</div>}
-    {<div className="b3">{!data?.time ? <Bars /> : `${data.time}m ago`}</div>}
+    {<div className="b3">{!data?.time ? <Bars /> : `${data.time} ago`}</div>}
     </div>  
   </div>;
 }

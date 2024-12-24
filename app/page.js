@@ -35,7 +35,7 @@ export default function Home() {
       <div className="b2" style={fadeInStyle(2)}>Lorem ipsum dolor sit amet.</div>
       <div className="b2" style={fadeInStyle(3)}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor. Vivamus aliquam hendrerit dolor, vulputate mattis quam tristique non.</div>
       <div className="b2" style={fadeInStyle(4)}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor.</div>
-      <div style={fadeInStyle(5)}><Frame src={volcano} date={<div className="b3">2021</div>} caption={<div className="b3"><a href="https://en.wikipedia.org/wiki/Volc%C3%A1n_Tajumulco" target="_blank">{"Tallest volcano"}</a> in Central America.</div>}/></div>
+      <div style={fadeInStyle(5)}><Frame src={volcano} date={<div className="b3">2021</div>} caption={<div className="b3"><a href="https://en.wikipedia.org/wiki/Volc%C3%A1n_Tajumulco" target="_blank">{"Tallest mountain/volcano"}</a> in Central America.</div>}/></div>
       <div className="b2" style={fadeInStyle(6)}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor.</div>
       <div className="b2" style={fadeInStyle(7)}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor. Vivamus aliquam hendrerit dolor, vulputate mattis quam tristique non.</div>
       <div style={fadeInStyle(8)}><Spotify/></div>
