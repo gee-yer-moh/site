@@ -59,7 +59,6 @@ export default function Spotify() {
             
             try {
                 const data = JSON.parse(text);
-                console.log('data', data);
                 setRecentlyPlayed(data.recentlyPlayedSong);
                 setNowPlaying(data.nowPlayingSong);
             } catch (parseError) {
@@ -73,7 +72,7 @@ export default function Spotify() {
 }, []);
 
     useEffect(() => {
-      if (nowPlaying && nowPlaying?.is_playing) {
+      if (nowPlaying && nowPlaying?.is_playing && nowPlaying?.currently_playing_type === 'track') {
         setData(
           {
             title: nowPlaying.item.name,

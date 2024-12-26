@@ -32,13 +32,13 @@ export default function Home() {
     <div className={styles.container}>
       <div style={fadeInStyle(0)}><NavBar /></div>
       <div style={fadeInStyle(1)}><Title /></div>
-      <div className="b2" style={fadeInStyle(2)}>Lorem ipsum dolor sit amet.</div>
-      <div className="b2" style={fadeInStyle(3)}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor. Vivamus aliquam hendrerit dolor, vulputate mattis quam tristique non.</div>
-      <div className="b2" style={fadeInStyle(4)}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor.</div>
-      <div style={fadeInStyle(5)}><Frame src={volcano} date={<div className="b3">2021</div>} caption={<div className="b3"><a href="https://en.wikipedia.org/wiki/Volc%C3%A1n_Tajumulco" target="_blank">{"Tallest mountain/volcano"}</a> in Central America.</div>}/></div>
-      <div className="b2" style={fadeInStyle(6)}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor.</div>
-      <div className="b2" style={fadeInStyle(7)}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mi sit amet dolor rutrum porttitor. Vivamus aliquam hendrerit dolor, vulputate mattis quam tristique non.</div>
-      <div style={fadeInStyle(8)}><Spotify/></div>
+      <div className="b2" style={fadeInStyle(2)}>I'm on a lifelong journey to enhance the human experience through technology. Startups are the best way to do this quickly and disruptively.</div>
+      <div className="b2" style={fadeInStyle(3)}>Recently, I graduated from Columbia University where I studied the beautiful subject of pure mathematics and built a couple of startups. I'm a <a href="https://posthog.com/blog/what-is-a-product-engineer" target="_blank">product engineer</a>.</div>
+      <div style={fadeInStyle(4)}><Frame src={volcano} date={<div className="b3">2021</div>} caption={<div className="b3"><a href="https://en.wikipedia.org/wiki/Volc%C3%A1n_Tajumulco" target="_blank">{"Tallest mountain/volcano"}</a> in Central America.</div>}/></div>
+      <div className="b2" style={fadeInStyle(5)}>My product-building mentality revolves around intuitive interfaces, extremely fast execution,  and a never-ending cycle of user conversations.</div>
+      <div className="b2" style={fadeInStyle(6)}>In case you didn't come from my LinkedIn, here's a summary of my <a href="experience">experience</a>.</div>
+      <div style={fadeInStyle(7)}><Spotify/></div>
+      <div className="b2" style={fadeInStyle(8)}>I enjoy reading science fiction, playing guitar, and a good podcast. Here's a <a href="favorites">list</a> of some of my favorites.</div>
       <div style={fadeInStyle(9)}><Footer/></div>
     </div>
   );

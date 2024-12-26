@@ -66,6 +66,11 @@ body {
 a {
   color: inherit;
   text-decoration: underline;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.5;
 }
 
 h1 {
@@ -142,7 +147,7 @@ h6 {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 2;
   letter-spacing: 0.035px;
 }
 
