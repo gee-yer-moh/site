@@ -13,10 +13,18 @@ export const metadata = {
   description: "My personal website.",
 };
 
+const fadeInStyle = (index) => ({
+  opacity: isVisible[index] ? 1 : 0,
+  transition: 'opacity 0.5s ease-in',
+  color: "var(--primary)"
+});
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={lora.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        </body>
     </html>
   );
 }

@@ -1,0 +1,52 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import styles from "../page.module.css";
+import NavBar from "../_components/NavBar";
+import Footer from "../_components/Footer";
+import ExperienceCard from "./_components/ExperienceCard";
+import habitat from "../../public/habitat.jpg";
+import traveler from "../../public/traveler.jpg";
+import picnic from "../../public/picnic.webp";
+import sivar from "../../public/sivar.jpeg";
+import ftsl from "../../public/ftsl.jpeg";
+
+export default function Experience() {
+
+    const [isVisible, setIsVisible] = useState({});
+
+
+    useEffect(() => {
+        const elements = 10; // Changed from 9 to 10 to include Footer
+        
+        for (let i = 0; i < elements; i++) {
+          setTimeout(() => {
+            setIsVisible(prev => ({...prev, [i]: true}));
+          }, i * 100);
+        }
+      }, []);
+    
+      const fadeInStyle = (index) => ({
+        opacity: isVisible[index] ? 1 : 0,
+        transition: 'opacity 0.5s ease-in',
+        color: "var(--primary)"
+      });
+
+  return <div className={styles.container} style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={fadeInStyle(0)}><NavBar /></div>
+    <div style={{ flex: 1, gap: "40px", display: "flex", flexDirection: "column" }}>
+        <div style={{display: "flex", flexDirection: "column", gap: "20px"}}>
+      <div className="b1" style={{...fadeInStyle(1), fontWeight: "bold"}}>Experience</div>
+      <div style={fadeInStyle(2)}><ExperienceCard company="Habitat App" position="Founder" description="Automated mortgage application reviews" year="2022 - Present" image={habitat} url="https://www.habitat-app.org"/></div>
+      <div style={fadeInStyle(3)}><ExperienceCard company="traveler" position="Co-Founder" description="AI manufacturing traveler for modular construction" year="2024" image={traveler} url="https://www.habitat-app.org"/></div>
+      <div style={fadeInStyle(3)}><ExperienceCard company="Picnic" position="Chief Product Officer" description="Social media for GenZ" year="2021" image={picnic} url="https://apps.apple.com/ca/app/picnic-dive-into-communities/id1544626265"/></div>
+      </div>
+      <div style={{display: "flex", flexDirection: "column", gap: "20px"}}>
+      <div className="b1" style={{...fadeInStyle(4), fontWeight: "bold"}}>Volunteering</div>
+      <div style={fadeInStyle(5)}><ExperienceCard company="FTSL" position="Founder" description="Educating low income deaf communities" year="2018 - 2024" image={ftsl} url="https://www.instagram.com/fundacionftsl/"/></div>
+      <div style={fadeInStyle(6)}><ExperienceCard company="SivarLive" position="Co-Founder" description="Promoting local Salvadoran talent" year="2022" image={sivar} url="https://www.instagram.com/sivar.live/"/></div>
+    </div>
+    </div>
+    <div style={fadeInStyle(4)}><Footer /></div>
+  </div>;
+}
