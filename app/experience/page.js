@@ -15,11 +15,12 @@ import translation from "../_internationalization/translation.json";
 export default function Experience() {
 
     const [isVisible, setIsVisible] = useState({});
-    const language = localStorage.getItem("language") || "en";
+    const [language, setLanguage] = useState("en");
 
     useEffect(() => {
-        const elements = 10; // Changed from 9 to 10 to include Footer
-        
+        setLanguage(localStorage.getItem("language") || "en");
+
+        const elements = 10;
         for (let i = 0; i < elements; i++) {
           setTimeout(() => {
             setIsVisible(prev => ({...prev, [i]: true}));

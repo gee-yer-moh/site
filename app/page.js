@@ -11,10 +11,12 @@ import Spotify from "./_components/Spotify";
 import translation from "./_internationalization/translation.json";
 export default function Home() {
   const [isVisible, setIsVisible] = useState({});
+  const [language, setLanguage] = useState("en");
 
   useEffect(() => {
-    const elements = 10; // Changed from 9 to 10 to include Footer
+    setLanguage(localStorage.getItem("language") || "en");
     
+    const elements = 10;
     for (let i = 0; i < elements; i++) {
       setTimeout(() => {
         setIsVisible(prev => ({...prev, [i]: true}));
@@ -27,8 +29,6 @@ export default function Home() {
     transition: 'opacity 0.5s ease-in',
     color: "var(--primary)"
   });
-
-  const language = localStorage.getItem("language") || "en";
 
   return (
     <div className={styles.container}>
