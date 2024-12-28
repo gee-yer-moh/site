@@ -8,7 +8,7 @@ import Bars from './Bars';
 import translation from '../../_internationalization/translation.json';
 
 
-const msToMinutes = (ms) => {
+const msToMinutes = (ms, language) => {
   const minutes = Math.floor(ms / 60000);
   const isSpanish = language === 'es';
   
@@ -114,7 +114,7 @@ export default function Spotify() {
               title: nonExplicitTrack.track.name,
               artist: nonExplicitTrack.track.artists[0].name,
               image: nonExplicitTrack.track.album.images[0].url,
-              time: msToMinutes(msBetweenTodayAndDate(nonExplicitTrack.played_at)),
+              time: msToMinutes(msBetweenTodayAndDate(nonExplicitTrack.played_at), language),
               link: nonExplicitTrack.track.external_urls.spotify,
           }
         );
