@@ -34,9 +34,19 @@ const findFirstNonExplicitTrack = (tracks) => {
   return tracks.items.find(item => !item?.track?.explicit);
 };
 
-const language = localStorage.getItem("language") || "en";
-  
+
+
 export default function Spotify() {
+
+
+  const [language, setLanguage] = useState("en");
+
+  useEffect(() => {
+    if (window) {
+      const savedLanguage = localStorage.getItem("language") || "en";
+      setLanguage(savedLanguage);
+    }
+  }, []);
 
   const [recentlyPlayed, setRecentlyPlayed] = useState(null);
   const [nowPlaying, setNowPlaying] = useState(null);

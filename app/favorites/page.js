@@ -13,10 +13,11 @@ export default function Favorites() {
     const [language, setLanguage] = useState("en");
 
     useEffect(() => {
-      if (typeof window !== 'undefined') {
+      if (window) {
         const savedLanguage = localStorage.getItem("language") || "en";
         setLanguage(savedLanguage);
-      }      
+      }
+       
         const elements = 10;
         for (let i = 0; i < elements; i++) {
           setTimeout(() => {

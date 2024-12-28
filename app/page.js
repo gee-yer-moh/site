@@ -14,7 +14,7 @@ export default function Home() {
   const [language, setLanguage] = useState("en");
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (window) {
       const savedLanguage = localStorage.getItem("language") || "en";
       setLanguage(savedLanguage);
     }

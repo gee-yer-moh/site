@@ -1,8 +1,18 @@
+"use client";
+
 import styles from "./style.module.css";
 import translation from "../../_internationalization/translation.json";
+import { useEffect, useState } from "react";
 
 export default function Title() {
-  const language = localStorage.getItem("language") || "en";
+  const [language, setLanguage] = useState("en");
+
+  useEffect(() => {
+    if (window) {
+      const savedLanguage = localStorage.getItem("language") || "en";
+      setLanguage(savedLanguage);
+    }
+  }, []);
 
   return (
     <div className={styles.container}>

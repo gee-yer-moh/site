@@ -7,12 +7,19 @@ import { useState, useEffect } from "react";
 export default function NavBar() {
   const [sides, setSides] = useState(12);
   const [theme, setTheme] = useState("light");
-  const [language, setLanguage] = useState(() => localStorage.getItem("language") || "en");
+  const [language, setLanguage] = useState("en");
 
   // Apply theme class to document body
   useEffect(() => {
     document.body.className = `${theme}-theme`;
   }, [theme]);
+
+  useEffect(() => {
+    if (window) {
+      const savedLanguage = localStorage.getItem("language") || "en";
+      setLanguage(savedLanguage);
+    }
+  }, []);
 
   const handlePolygonClick = () => {
     setSides(current => current <= 3 ? 12 : current - 1);
@@ -31,8 +38,10 @@ export default function NavBar() {
         <div className="b3" onClick={() => {
           const newLang = language === "en" ? "es" : "en";
           setLanguage(newLang);
-          localStorage.setItem("language", newLang);
-          window.location.reload();
+          if (window) {
+            localStorage.setItem("language", newLang);
+            window.location.reload();
+          }
         }}>{language === "en" ? "español" : "english"}</div>
       </div>
     </div>
