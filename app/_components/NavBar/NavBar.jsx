@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 export default function NavBar() {
   const [sides, setSides] = useState(12);
   const [theme, setTheme] = useState("light");
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState(() => localStorage.getItem("language") || "en");
 
   // Apply theme class to document body
   useEffect(() => {
@@ -28,11 +28,11 @@ export default function NavBar() {
         />
       </div>
       <div className={styles.links}>
-        {/* <div className="b3" onClick={() => {
-          setTheme(theme === "dark" ? "light" : "dark")
-        }}>{theme === "dark" ? "light" : "dark"}</div> */}
         <div className="b3" onClick={() => {
-          setLanguage(language === "en" ? "es" : "en")
+          const newLang = language === "en" ? "es" : "en";
+          setLanguage(newLang);
+          localStorage.setItem("language", newLang);
+          window.location.reload();
         }}>{language === "en" ? "español" : "english"}</div>
       </div>
     </div>

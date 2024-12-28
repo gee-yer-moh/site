@@ -5,17 +5,20 @@ import styles from './style.module.css';
 import Image from 'next/image';
 import getItems from './SpotifyAPI';
 import Bars from './Bars';
+import translation from '../../_internationalization/translation.json';
 
 
 const msToMinutes = (ms) => {
   const minutes = Math.floor(ms / 60000);
-  if (minutes > 60) {
-    return `${Math.floor(minutes / 60)}h`;
+  const isSpanish = language === 'es';
+  
+  if (minutes >= 1440) {
+    return isSpanish ? `hace ${Math.floor(minutes / 1440)}d` : `${Math.floor(minutes / 1440)}d ago`;
   }
-  if (minutes > 1440) {
-    return `${Math.floor(minutes / 1440)}d`;
+  if (minutes >= 60) {
+    return isSpanish ? `hace ${Math.floor(minutes / 60)}h` : `${Math.floor(minutes / 60)}h ago`;
   }
-  return `${minutes}m`;
+  return isSpanish ? `hace ${minutes}m` : `${minutes}m ago`;
 }
 
 const msBetweenTodayAndDate = (date) => {
@@ -30,6 +33,8 @@ const findFirstNonExplicitTrack = (tracks) => {
   
   return tracks.items.find(item => !item?.track?.explicit);
 };
+
+const language = localStorage.getItem("language") || "en";
   
 export default function Spotify() {
 
@@ -123,8 +128,8 @@ export default function Spotify() {
       </div>
     </div>
     <div className={styles.footer}>
-    {<div className="b3">Disclaimer: I share Spotify with my wife.</div>}
-    {<div className="b3">{!data?.time ? <Bars /> : `${data.time} ago`}</div>}
+    {<div className="b3">{translation[language].paragraph_6}</div>}
+    {<div className="b3">{!data?.time ? <Bars /> : data.time}</div>}
     </div>  
   </div>;
 }

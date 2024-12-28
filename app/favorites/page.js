@@ -5,11 +5,12 @@ import styles from "../page.module.css";
 import NavBar from "../_components/NavBar";
 import Footer from "../_components/Footer";
 import Media from "./_components/Media";
+import translation from "../_internationalization/translation.json";
 
 export default function Favorites() {
 
     const [isVisible, setIsVisible] = useState({});
-
+    const language = localStorage.getItem("language") || "en";
 
     useEffect(() => {
         const elements = 10; // Changed from 9 to 10 to include Footer
@@ -31,7 +32,7 @@ export default function Favorites() {
     <div style={fadeInStyle(0)}><NavBar /></div>
     <div style={{ flex: 1, gap: "40px", display: "flex", flexDirection: "column" }}>
       <div style={{display: "flex", flexDirection: "column", gap: "20px", ...fadeInStyle(1)}}>
-        <div className="b1" style={{...fadeInStyle(1), fontWeight: "bold"}}>Books</div>
+        <div className="b1" style={{...fadeInStyle(1), fontWeight: "bold"}}>{translation[language].books}</div>
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
           <Media src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1580978211i/70551.jpg" url="https://www.goodreads.com/book/show/70551.Republic" />
           <Media src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1439953323i/98233.jpg" url="https://www.goodreads.com/book/show/98233.Founders_at_Work" />
@@ -44,7 +45,7 @@ export default function Favorites() {
         </div>
       </div>
       <div style={{display: "flex", flexDirection: "column", gap: "20px", ...fadeInStyle(2)}}>
-      <div className="b1" style={{...fadeInStyle(4), fontWeight: "bold"}}>Songs</div>
+      <div className="b1" style={{...fadeInStyle(4), fontWeight: "bold"}}>{translation[language].songs}</div>
       <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
         <Media src="https://i.scdn.co/image/ab67616d0000b27369337b6f76bd7943acdcd192" url="https://www.youtube.com/watch?v=e4HfFwVy-h0" />
         <Media src="https://i.scdn.co/image/ab67616d0000b27303e402534d80a4aee949a950" url="https://open.spotify.com/track/47dPsSo7cEDNkvIOSB4O2k?si=13feeaa39c084076" />
