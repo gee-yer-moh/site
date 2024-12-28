@@ -11,7 +11,7 @@ export default function Frame({src, caption, date}) {
         fill
         style={{objectFit: 'cover'}}
         priority
-        sizes="(max-width: 768px) 100vw, 50vw"
+        sizes="(max-width: 600px) 100vw, 50vw"
     />
     </div>
     <div className={styles.footer}>
